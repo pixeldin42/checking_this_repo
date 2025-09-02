@@ -19,4 +19,4 @@ def print_set(number_set):
 # Generate and print 10 sets of numbers
 for _ in range(10):
     numbers = generate_numbers()
-    print_set(numbers)
+    print
