@@ -1,34 +1,22 @@
 import random
 
-# A program that simulates a simple dice rolling game.
+def generate_numbers():
+    actual_charge = round(random.uniform(614, 630), 2)
+    p = round(random.uniform(-40, 40), 2)
+    r = round(random.uniform(-0.28, 0.76), 2)
+    subtotal = actual_charge
+    total = round(actual_charge - p - r, 2)
+    return actual_charge, p, r, subtotal, total
 
-def roll_dice():
-  """Rolls a pair of six-sided dice and returns the sum."""
-  die1 = random.randint(1, 6)
-  die2 = random.randint(1, 6)
-  return die1 + die2
+def print_set(number_set):
+    print("Actual Charge:", number_set[0])
+    print("P:", number_set[1])
+    print("R:", number_set[2])
+    print("Subtotal:", number_set[3])
+    print("Total:", number_set[4])
+    print()
 
-def game_loop():
-  """Main game loop."""
-  player_score = 0
-  computer_score = 0
-  
-  print("Let's play a dice game!")
-  print("The first to a score of 10 or more wins!")
-
-  while player_score < 10 and computer_score < 10:
-    input("Press Enter to roll your dice...")
-    player_roll = roll_dice()
-    player_score += player_roll
-    print(f"You rolled a {player_roll}. Your score is now {player_score}.")
-
-    computer_roll = roll_dice()
-    computer_score += computer_roll
-    print(f"The computer rolled a {computer_roll}. The computer's score is now {computer_score}.")
-    
-  if player_score >= 10:
-    print("Congratulations! You won!")
-  else:
-    print("The computer won. Better luck next time!")
-
-game_loop()
+# Generate and print 10 sets of numbers
+for _ in range(10):
+    numbers = generate_numbers()
+    print_set(numbers)
